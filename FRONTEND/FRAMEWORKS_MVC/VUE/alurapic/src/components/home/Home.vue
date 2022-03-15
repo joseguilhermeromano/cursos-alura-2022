@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <h1 class="centralizado">{{ titulo }}</h1>
 
     <p v-show="mensagem" class="centralizado">{{ mensagem }}</p>
@@ -7,7 +8,7 @@
     <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre pelo titulo..." name="" id="">
 
     <ul class="lista-fotos">
-      <li v-for="foto of fotosComFiltro" :key="foto" class="lista-fotos-item">
+      <li v-for="(foto, idx) of fotosComFiltro" :key="idx" class="lista-fotos-item">
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva v-meu-transform:scale.animate="1.2" :url="foto.url" :titulo="foto.titulo"/>
           <router-link :to="{ name: 'altera', params: {id: foto._id} }">
@@ -23,13 +24,14 @@
         </meu-painel>
       </li>
     </ul>
+    <img src="/static/gato.jpg">
   </div>
 </template>
 
 <script>
-import Painel from '../shared/painel/Painel'
-import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva'
-import Botao from '../shared/botao/Botao'
+import Painel from '../shared/painel/Painel.vue'
+import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
+import Botao from '../shared/botao/Botao.vue'
 import FotoService from '../../domain/foto/FotoService'
 
 export default {

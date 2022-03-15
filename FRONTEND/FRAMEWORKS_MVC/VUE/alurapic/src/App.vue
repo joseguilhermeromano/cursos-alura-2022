@@ -1,15 +1,17 @@
 <template>
-  <div class="corpo">
-    <meu-menu :rotas="routes" />
-    <transition name="pagina">
-      <router-view></router-view>
-    </transition>
+  <div id="app">
+    <div class="corpo">
+      <meu-menu :rotas="routes" />
+      <transition name="pagina">
+        <router-view></router-view>
+      </transition>
+    </div>
   </div>
 </template>
 
 <script>
 import {routes} from './routes'
-import Menu from './components/shared/Menu/Menu'
+import Menu from './components/shared/Menu/Menu.vue'
 
 export default {
   components: {

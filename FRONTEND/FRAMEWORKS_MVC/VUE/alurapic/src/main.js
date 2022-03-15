@@ -8,13 +8,18 @@ import './directives/Transform'
 import VeeValidate from 'vee-validate'
 import msg from './pt_BR'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import './assets/css/teste.css'
+import './assets/js/teste.js'
+import 'bootstrap/dist/js/bootstrap.js'
+
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.http.options.root = 'http://localhost:3000'
 
 const router = new VueRouter({ 
   routes,
-  mode: 'history'
+  mode: 'history',
  })
 
 Vue.use(VeeValidate,{
@@ -30,4 +35,4 @@ new Vue({
   el: '#app',
   router, 
   render: h => h(App)
-})
+}).$mount('#app')
