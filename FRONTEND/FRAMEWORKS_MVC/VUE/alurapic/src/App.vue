@@ -11,7 +11,7 @@
 
 <script>
 import {routes} from './routes'
-import Menu from './components/shared/Menu/Menu.vue'
+import Menu from './components/shared/Menu/Menu'
 
 export default {
   components: {
