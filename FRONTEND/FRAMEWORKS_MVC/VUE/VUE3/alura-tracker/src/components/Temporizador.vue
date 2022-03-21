@@ -7,13 +7,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import Cronometro from './Cronometro.vue'
 import Botao from './Botao.vue'
+import { TipoNotificacao } from '@/interfaces/INotificacao'
+import { useStore } from '@/store'
+// import { notificacaoMixin } from "@/mixins/notificar"
+import useNotificador from "@/hooks/notificador"
 
 export default defineComponent({
     name: 'Temporizador',
     emits: ['aoTemporizadorFinalizado'],
+    props: ['idProjeto'],
+    // mixins: [notificacaoMixin],
     components: {
         Cronometro, Botao
     },
@@ -34,10 +40,27 @@ export default defineComponent({
             console.log('iniciando')
         },
         finalizar () {
+            console.log(this.idProjeto)
+            const projeto = this.projetos.find((p) => p.id == this.idProjeto);
+            if (!projeto) {
+                this.notificar(TipoNotificacao.FALHA, 'Ops!', "Selecione um projeto antes de finalizar a tarefa!")
+                return;
+            }
+
             this.cronometroRodando = false
             clearInterval(this.cronometro)
             this.$emit('aoTemporizadorFinalizado', this.tempoEmSegundos)
             this.tempoEmSegundos = 0 
+        }
+
+    },
+    setup() {
+        const store = useStore()
+        const { notificar } = useNotificador()
+        return {
+            projetos: computed(() => store.state.projetos),
+            store,
+            notificar
         }
     }
 })
