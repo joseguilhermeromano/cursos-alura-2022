@@ -22,28 +22,32 @@
         :tarefa="tarefa"
         @aoTarefaClicada="selecionarTarefa"
       />
-      <modal :mostrar="tarefaSelecionada != null" >
+      <modal :mostrar="tarefaSelecionada != null">
         <template v-slot:cabecalho>
-        <p class="modal-card-title">Editando uma tarefa</p>
-        <button @click="fecharModal" class="delete" aria-label="close"></button>
-      </template>
-      <template v-slot:corpo>
-        <div class="field">
-          <label for="descricaoDaTarefa" class="label"> Descrição </label>
-          <input
-            type="text"
-            class="input"
-            v-model="tarefaSelecionada.descricao"
-            id="descricaoDaTarefa"
-          />
-        </div>
-      </template>
-      <template v-slot:rodape>
-        <button @click="alterarTarefa" class="button is-success">
-          Salvar Alterações
-        </button>
-        <button @click="fecharModal" class="button">Cancelar</button>
-      </template>
+          <p class="modal-card-title">Editando uma tarefa</p>
+          <button
+            @click="fecharModal"
+            class="delete"
+            aria-label="close"
+          ></button>
+        </template>
+        <template v-slot:corpo>
+          <div class="field">
+            <label for="descricaoDaTarefa" class="label"> Descrição </label>
+            <input
+              type="text"
+              class="input"
+              v-model="tarefaSelecionada.descricao"
+              id="descricaoDaTarefa"
+            />
+          </div>
+        </template>
+        <template v-slot:rodape>
+          <button @click="alterarTarefa" class="button is-success">
+            Salvar Alterações
+          </button>
+          <button @click="fecharModal" class="button">Cancelar</button>
+        </template>
       </modal>
     </div>
   </div>

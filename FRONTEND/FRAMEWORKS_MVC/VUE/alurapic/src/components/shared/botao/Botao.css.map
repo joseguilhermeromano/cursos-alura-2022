@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,MAAM,CAAA;EACF,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,KAAK;CACnB;;AAED,AAAA,aAAa,CAAC;EACV,UAAU,EAXR,SAAS;EAYX,KAAK,EAAE,KAAK;CAEf;;AAED,AAAA,aAAa,CAAC;EACV,UAAU,EAAE,QAAQ;EACpB,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "Botao.scss"
+    ],
+    "names": [],
+    "file": "Botao.css"
+}
